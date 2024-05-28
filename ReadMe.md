@@ -8,17 +8,20 @@ mid-high range lucky shots over close range arms races. Its effectiveness is que
 where it did manage to contest a few AdvancedRobots, which i'll take as an absolute win.
 
 ## Patch Notes
-Patch 0.1
+Patch 0.1:
 Called it Initial on the actual commit, due to it being the first addition of the new bot as a file.
 
-Patch 0.2
+Patch 0.2:
 Tracker's aiming was ripped and unnecessary clutter removed.
 
-Patch 0.2.1
+Patch 0.2.1:
 Did some minor number tweaking, to ensure the aiming is more quick and snappy. Tested with Interactive.
 
-Patch 0.2.2
+Patch 0.2.2:
 Added patch notes!
+
+Patch 0.2.2.1:
+...fixed patch notes, by adding actual punctuation.
 
 ## ReadMe for Robocode
 
