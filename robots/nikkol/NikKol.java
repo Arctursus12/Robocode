@@ -1,6 +1,7 @@
 package nikkol;
 import robocode.*;
 import robocode.Robot;
+import static robocode.util.Utils.normalRelativeAngleDegrees;
 
 import java.awt.*;
 public class NikKol extends Robot{
@@ -15,10 +16,35 @@ public class NikKol extends Robot{
 		setScanColor(new Color(255, 0, 85));
         setAdjustGunForRobotTurn(true);
         while(true){
-            turnGunLeft(5);
+			turnGunRight(gunTurn);
+			count++;
+			if (count > 2) {
+				gunTurn = -10;
+			}
+			if (count > 5) {
+				gunTurn = 10;
+			}
+			if (count > 11) {
+				tracking = null;
+            }
         }
     }    
-    public void onScannedRobot(ScannedRobotEvent e){
-        fire(0.5);
-    }
+    public void onScannedRobot(ScannedRobotEvent e) {
+		if (tracking != null && !e.getName().equals(tracking)) {
+			return;
+		}
+		if (tracking == null) {
+			tracking = e.getName();
+		}
+		count = 0;
+		if (e.getDistance() > 150) {
+			gunTurn = normalRelativeAngleDegrees(e.getBearing() + (getHeading() - getRadarHeading()));
+			turnGunRight(gunTurn); 
+			return;
+		}
+		gunTurn = normalRelativeAngleDegrees(e.getBearing() + (getHeading() - getRadarHeading()));
+		turnGunRight(gunTurn);
+		fire(3);
+		scan();
+	}
 }
