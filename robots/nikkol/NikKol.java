@@ -19,10 +19,10 @@ public class NikKol extends Robot{
 			turnGunRight(gunTurn);
 			count++;
 			if (count > 2) {
-				gunTurn = -10;
+				gunTurn = -30;
 			}
 			if (count > 5) {
-				gunTurn = 10;
+				gunTurn = 30;
 			}
 			if (count > 11) {
 				tracking = null;
