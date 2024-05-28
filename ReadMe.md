@@ -1,3 +1,25 @@
+## Arc's notes
+My idea was to take what the, in my opinion, most perfect basic robot (Tracker) does, and try to improve on it. 
+The aiming mechanic was good, but moving to chase the target removed precious aiming precision. I removed its 
+inclination to move without good reason, and ramped up the degrees on its aiming to ensure that it can snap on
+target fast enough to have time to reposition when necessary. This new "Tracker" should be able to keep its 
+distance significantly better and hold target a lot better, by adopting a "juking" playstyle that prioritizes
+mid-high range lucky shots over close range arms races. Its effectiveness is questionable, but sufficient to 
+where it did manage to contest a few AdvancedRobots, which i'll take as an absolute win.
+
+## Patch Notes
+Patch 0.1
+Called it Initial on the actual commit, due to it being the first addition of the new bot as a file.
+
+Patch 0.2
+Tracker's aiming was ripped and unnecessary clutter removed.
+
+Patch 0.2.1
+Did some minor number tweaking, to ensure the aiming is more quick and snappy. Tested with Interactive.
+
+Patch 0.2.2
+Added patch notes!
+
 ## ReadMe for Robocode
 
 Updated 29-Jul-2021 by Flemming N. Larsen
