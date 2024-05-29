@@ -27,6 +27,9 @@ Patch 1.0:
 Movement system implemented for dodging, bot behavior differs from kiting to
 strafing depending on range and incoming firepower. Beats most sample bots.
 
+Patch 1.0.1:
+Minor formatting change as my perfectionism was causing me pain.
+
 ## ReadMe for Robocode
 
 Updated 29-Jul-2021 by Flemming N. Larsen

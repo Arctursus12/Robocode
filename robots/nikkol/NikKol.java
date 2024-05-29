@@ -3,8 +3,8 @@ import robocode.*;
 import robocode.Robot;
 import static robocode.util.Utils.normalRelativeAngleDegrees;
 import java.lang.Math;
-
 import java.awt.*;
+
 public class NikKol extends Robot{
     int count;
     double gunTurn;
@@ -19,26 +19,26 @@ public class NikKol extends Robot{
         while(true){
 			turnGunRight(gunTurn);
 			count++;
-			if (count > 2) {
+			if (count > 2){
 				gunTurn = -30;
 			}
-			if (count > 5) {
+			if (count > 5){
 				gunTurn = 30;
 			}
-			if (count > 11) {
+			if (count > 11){
 				tracking = null;
             }
         }
     }    
-    public void onScannedRobot(ScannedRobotEvent e) {
-		if (tracking != null && !e.getName().equals(tracking)) {
+    public void onScannedRobot(ScannedRobotEvent e){
+		if (tracking != null && !e.getName().equals(tracking)){
 			return;
 		}
-		if (tracking == null) {
+		if (tracking == null){
 			tracking = e.getName();
 		}
 		count = 0;
-		if (e.getDistance() > 300) {
+		if (e.getDistance() > 300){
 			gunTurn = normalRelativeAngleDegrees(e.getBearing() + (getHeading() - getRadarHeading()));
 		    turnGunRight(gunTurn); 
 		    fire(3);
@@ -46,21 +46,21 @@ public class NikKol extends Robot{
 		gunTurn = normalRelativeAngleDegrees(e.getBearing() + (getHeading() - getRadarHeading()));
 		turnGunRight(gunTurn);
 		fire(3);
-        if (e.getDistance() < 300) {
-			if (e.getBearing() > -90 && e.getBearing() <= 90) {
+        if (e.getDistance() < 300){
+			if (e.getBearing() > -90 && e.getBearing() <= 90){
                 turnLeft(30);
 				back(40);
 			}
 		}
-        if (e.getDistance() < 100) {
-			if (e.getBearing() > -90 && e.getBearing() <= 90) {
+        if (e.getDistance() < 100){
+			if (e.getBearing() > -90 && e.getBearing() <= 90){
                 turnRight(30);
 				back(80);
 			}
 		}
 		scan();
 	}
-    public void onHitByBullet(HitByBulletEvent e) {
+    public void onHitByBullet(HitByBulletEvent e){
 		turnLeft(90 - e.getBearing());
         double coinflip = Math.random();
         if(coinflip > 0.5){ahead(80);}
