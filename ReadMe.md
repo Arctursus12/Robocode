@@ -23,6 +23,10 @@ Added patch notes!
 Patch 0.2.2.1:
 ...fixed patch notes, by adding actual punctuation.
 
+Patch 1.0:
+Movement system implemented for dodging, bot behavior differs from kiting to
+strafing depending on range and incoming firepower. Beats most sample bots.
+
 ## ReadMe for Robocode
 
 Updated 29-Jul-2021 by Flemming N. Larsen

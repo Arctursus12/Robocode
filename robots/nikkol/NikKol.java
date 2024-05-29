@@ -2,6 +2,7 @@ package nikkol;
 import robocode.*;
 import robocode.Robot;
 import static robocode.util.Utils.normalRelativeAngleDegrees;
+import java.lang.Math;
 
 import java.awt.*;
 public class NikKol extends Robot{
@@ -37,14 +38,32 @@ public class NikKol extends Robot{
 			tracking = e.getName();
 		}
 		count = 0;
-		if (e.getDistance() > 150) {
+		if (e.getDistance() > 300) {
 			gunTurn = normalRelativeAngleDegrees(e.getBearing() + (getHeading() - getRadarHeading()));
-			turnGunRight(gunTurn); 
-			return;
+		    turnGunRight(gunTurn); 
+		    fire(3);
 		}
 		gunTurn = normalRelativeAngleDegrees(e.getBearing() + (getHeading() - getRadarHeading()));
 		turnGunRight(gunTurn);
 		fire(3);
+        if (e.getDistance() < 300) {
+			if (e.getBearing() > -90 && e.getBearing() <= 90) {
+                turnLeft(30);
+				back(40);
+			}
+		}
+        if (e.getDistance() < 100) {
+			if (e.getBearing() > -90 && e.getBearing() <= 90) {
+                turnRight(30);
+				back(80);
+			}
+		}
 		scan();
+	}
+    public void onHitByBullet(HitByBulletEvent e) {
+		turnLeft(90 - e.getBearing());
+        double coinflip = Math.random();
+        if(coinflip > 0.5){ahead(80);}
+        if(coinflip < 0.5){back(80);}
 	}
 }
